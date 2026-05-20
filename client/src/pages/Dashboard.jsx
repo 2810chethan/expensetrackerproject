@@ -22,7 +22,7 @@ function Dashboard() {
 
   const addExpense = async () => {
     try {
-      await axios.post("http://localhost:5000/api/expenses/add", {
+      await axios.post("https://expensetrackerproject-puzd.onrender.com/api/expenses/add", {
         ...expense,
         amount: Number(expense.amount)
       });
@@ -37,7 +37,7 @@ function Dashboard() {
   const fetchExpenses = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/expenses/testuser1"
+        "https://expensetrackerproject-puzd.onrender.com/api/expenses/testuser1"
       );
 
       setExpenses(res.data);
