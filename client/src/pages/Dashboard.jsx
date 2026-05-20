@@ -3,8 +3,11 @@ import axios from "axios";
 import { PieChart, Pie, Tooltip } from "recharts";
 
 function Dashboard() {
+  const userName = localStorage.getItem("userName") || "User";
+  const currentUserId = localStorage.getItem("userId") || "testuser1";
+
   const [expense, setExpense] = useState({
-    userId: "testuser1",
+    userId: currentUserId,
     amount: "",
     category: "",
     date: "",
@@ -36,8 +39,9 @@ function Dashboard() {
 
   const fetchExpenses = async () => {
     try {
+      const uId = localStorage.getItem("userId") || "testuser1";
       const res = await axios.get(
-        "https://expensetrackerproject-puzd.onrender.com/api/expenses/testuser1"
+        `https://expensetrackerproject-puzd.onrender.com/api/expenses/${uId}`
       );
 
       setExpenses(res.data);
@@ -61,7 +65,8 @@ function Dashboard() {
     <div style={{ padding: "30px", textAlign: "center" }}>
       <button onClick={logout}>Logout</button>
 
-      <h1>Expense Tracker Dashboard</h1>
+      <h1>Welcome, {userName}!</h1>
+      <h3>Expense Tracker Dashboard</h3>
 
       <h2>Total Expense: ₹{total}</h2>
 

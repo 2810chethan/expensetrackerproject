@@ -21,7 +21,7 @@ function Register() {
   const handleRegister = async () => {
     try {
       await axios.post(
-        "https://https://expensetrackerproject-puzd.onrender.com/api/auth/register",
+        "https://expensetrackerproject-puzd.onrender.com/api/auth/register",
         user
       );
 
