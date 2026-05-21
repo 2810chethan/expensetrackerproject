@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { PieChart, Pie, Tooltip } from "recharts";
 
-const API_URL = "https://expensetrackerproject-2.onrender.com";
+const API_URL = "https://expensetrackerproject-3.onrender.com";
 
 function Dashboard() {
   const userName = localStorage.getItem("userName") || "User";

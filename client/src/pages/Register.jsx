@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "https://expensetrackerproject-2.onrender.com";
+const API_URL = "https://expensetrackerproject-3.onrender.com";
 
 function Register() {
   const navigate = useNavigate();
