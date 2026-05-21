@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { PieChart, Pie, Tooltip } from "recharts";
 
+const API_URL = "https://expensetrackerproject-2.onrender.com";
+
 function Dashboard() {
+  const userName = localStorage.getItem("userName") || "User";
+  const currentUserId = localStorage.getItem("userId") || "testuser1";
+
   const [expense, setExpense] = useState({
-    userId: "testuser1",
+    userId: currentUserId,
     amount: "",
     category: "",
     date: "",
@@ -22,14 +27,16 @@ function Dashboard() {
 
   const addExpense = async () => {
     try {
-      await axios.post("http://localhost:5000/api/expenses/add", {
+      await axios.post(`${API_URL}/api/expenses/add`, {
         ...expense,
+        userId: currentUserId,
         amount: Number(expense.amount)
       });
 
       alert("Expense Added");
       fetchExpenses();
     } catch (err) {
+      alert("Expense Add Failed");
       console.log(err);
     }
   };
@@ -37,7 +44,7 @@ function Dashboard() {
   const fetchExpenses = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/expenses/testuser1"
+        `${API_URL}/api/expenses/${currentUserId}`
       );
 
       setExpenses(res.data);
@@ -48,6 +55,8 @@ function Dashboard() {
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userId");
     window.location.href = "/";
   };
 
@@ -55,13 +64,14 @@ function Dashboard() {
     fetchExpenses();
   }, []);
 
-  const total = expenses.reduce((sum, item) => sum + item.amount, 0);
+  const total = expenses.reduce((sum, item) => sum + Number(item.amount), 0);
 
   return (
     <div style={{ padding: "30px", textAlign: "center" }}>
       <button onClick={logout}>Logout</button>
 
-      <h1>Expense Tracker Dashboard</h1>
+      <h1>Welcome, {userName}!</h1>
+      <h3>Expense Tracker Dashboard</h3>
 
       <h2>Total Expense: ₹{total}</h2>
 
