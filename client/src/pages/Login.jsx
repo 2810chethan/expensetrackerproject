@@ -2,6 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../firebase";
+
 const API_URL = "https://expensetrackerproject-3.onrender.com";
 
 function Login() {
@@ -19,6 +22,7 @@ function Login() {
     });
   };
 
+  // Normal Login
   const handleLogin = async () => {
     try {
       const res = await axios.post(
@@ -35,9 +39,28 @@ function Login() {
       alert("Login Successful");
 
       navigate("/dashboard");
+
     } catch (err) {
       alert("Login Failed. Check email/password or backend.");
       console.log(err);
+    }
+  };
+
+  // Google Login
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+
+      localStorage.setItem("userName", result.user.displayName);
+      localStorage.setItem("userEmail", result.user.email);
+
+      alert("Google Login Successful");
+
+      navigate("/dashboard");
+
+    } catch (err) {
+      console.log(err);
+      alert("Google Login Failed");
     }
   };
 
@@ -65,6 +88,12 @@ function Login() {
 
       <button onClick={handleLogin}>
         Login
+      </button>
+
+      <br /><br />
+
+      <button onClick={handleGoogleLogin}>
+        Continue with Google
       </button>
 
       <br /><br />
