@@ -2,15 +2,26 @@
 
 ## Project Overview
 
-The Expense Tracker and Budget Analysis System is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) web application developed to help users manage their daily expenses efficiently. The application allows users to securely register, log in, add expenses, monitor spending habits, and analyze expenses using graphical visualization.
+The Expense Tracker and Budget Analysis System is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) web application developed to help users manage their daily expenses efficiently.
 
-The system was designed to provide users with a simple and user-friendly platform for financial management. The application includes secure authentication using JWT tokens and bcrypt password hashing. Expense data is stored in MongoDB Atlas cloud database and displayed using interactive charts and dashboard analytics.
+The application allows users to:
+- Securely register and log in
+- Login using Google Authentication
+- Add and manage expenses
+- Monitor spending habits
+- Analyze expenses using graphical visualization
+
+The system provides a simple and user-friendly platform for financial management. Secure authentication is implemented using JWT tokens, bcrypt password hashing, and Firebase Google Authentication.
+
+Expense data is stored in MongoDB Atlas cloud database and displayed using interactive charts and dashboard analytics.
 
 ---
 
 # Problem Statement
 
-Managing personal expenses manually is difficult and time-consuming. Most users fail to properly track spending patterns and maintain budgets. Existing traditional methods such as notebooks or spreadsheets are inefficient and difficult to analyze.
+Managing personal expenses manually is difficult and time-consuming. Most users fail to properly track spending patterns and maintain budgets.
+
+Traditional methods such as notebooks or spreadsheets are inefficient and difficult to analyze.
 
 This project provides a digital solution that helps users:
 - Record expenses easily
@@ -25,6 +36,7 @@ This project provides a digital solution that helps users:
 
 - Develop a secure expense management system
 - Implement user authentication
+- Implement Google Authentication
 - Store expense data in MongoDB Atlas
 - Provide expense analytics and visualizations
 - Display total expense calculations
@@ -38,6 +50,7 @@ This project provides a digital solution that helps users:
 ## User Authentication
 - User Registration
 - User Login
+- Google Authentication using Firebase
 - JWT Token Authentication
 - Secure Password Hashing using bcryptjs
 
@@ -69,6 +82,7 @@ This project provides a digital solution that helps users:
 - Axios
 - React Router DOM
 - Recharts
+- Firebase Authentication
 - CSS
 
 ## Backend Technologies
@@ -99,9 +113,9 @@ MongoDB Atlas Database
 
 # Project Workflow
 
-User Registration
+User Registration / Google Login
 ↓
-User Login Authentication
+User Authentication
 ↓
 JWT Token Generated
 ↓
@@ -119,12 +133,18 @@ Analytics and Charts Displayed
 
 # Frontend Development
 
-The frontend application was developed using React.js and Vite. Multiple pages were created including:
+The frontend application was developed using React.js and Vite.
+
+Multiple pages were created including:
 - Login Page
 - Register Page
 - Dashboard Page
 
-React Router DOM was used for navigation between pages. Axios was used for API communication between frontend and backend.
+React Router DOM was used for navigation between pages.
+
+Axios was used for API communication between frontend and backend.
+
+Firebase Authentication was integrated for Google Login functionality.
 
 The dashboard includes:
 - Expense input form
@@ -193,7 +213,7 @@ GET /api/expenses/:userId
 
 # Authentication Flow
 
-User enters login credentials
+User enters login credentials or Google Login
 ↓
 Backend verifies user data
 ↓
@@ -225,6 +245,7 @@ Postman was used to test backend APIs.
 The following functionalities were tested:
 - User Registration
 - User Login
+- Google Authentication
 - Add Expense API
 - Fetch Expense API
 - JWT Authentication
@@ -236,10 +257,16 @@ All APIs were tested successfully during development.
 # Deployment
 
 ## Frontend Deployment
-Frontend application was deployed using Vercel.
+Frontend application deployed using Vercel.
+
+Live Link:
+https://expensetrackerproject-fi86.vercel.app
 
 ## Backend Deployment
-Backend server deployment was attempted using Render.
+Backend server deployed using Render.
+
+Backend API:
+https://expensetrackerproject-3.onrender.com
 
 ## Database Hosting
 MongoDB Atlas was used as the cloud database platform.
@@ -248,6 +275,7 @@ Deployment process included:
 - Environment variable configuration
 - MongoDB connection setup
 - JWT secret key configuration
+- Firebase configuration
 - API URL updates
 
 ---
@@ -258,6 +286,7 @@ Deployment process included:
 - JWT authentication implementation
 - Backend deployment issues in Render
 - Environment variable setup
+- Firebase Google Authentication integration
 - API integration between frontend and backend
 - Module path issues during deployment
 
@@ -268,6 +297,7 @@ Deployment process included:
 The application successfully allows users to:
 - Register securely
 - Login using authentication
+- Login using Google account
 - Add and manage expenses
 - View expense history
 - Monitor total spending
@@ -280,13 +310,20 @@ The project demonstrates a complete MERN stack application workflow.
 
 # Conclusion
 
-The Expense Tracker and Budget Analysis System successfully demonstrates a full-stack MERN application with secure authentication, database integration, REST APIs, analytics, and deployment.
+The Expense Tracker and Budget Analysis System successfully demonstrates a full-stack MERN application with:
+- Secure authentication
+- Google Authentication
+- Database integration
+- REST APIs
+- Analytics
+- Cloud deployment
 
 The project helped improve understanding of:
 - MERN Stack Development
 - React.js Frontend Development
 - Node.js Backend Development
 - MongoDB Atlas Integration
+- Firebase Authentication
 - JWT Authentication
 - REST APIs
 - Cloud Deployment
@@ -309,6 +346,7 @@ The project helped improve understanding of:
 
 - Login Page
 - Register Page
+- Google Login
 - Dashboard
 - Pie Chart Analytics
 - Expense Cards
@@ -316,8 +354,15 @@ The project helped improve understanding of:
 
 ---
 
-# GitHub Repository
+# Live Project Links
 
+Frontend:
+https://expensetrackerproject-fi86.vercel.app
+
+Backend:
+https://expensetrackerproject-3.onrender.com
+
+GitHub Repository:
 https://github.com/2810chethan/expensetrackerproject
 
 ---
